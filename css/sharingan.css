@@ -1,0 +1,322 @@
+/* Hoja de estilo escrita por LordCaos que contiene el diseño de un Sharingan:
+	
+	--Estilos Generales
+	--Estilos del Sharingan
+
+
+*/
+
+		/*_________________________Estilos Generales_________________________*/
+@font-face {
+   font-family: "NinjaNaruto";
+   src: url("css/njnaruto.ttf");	
+		
+}
+body {
+	background:linear-gradient(left, rgba(178,225,255,1) 0%,rgba(102,182,252,1) 100%);
+	background-size:auto 1250px;
+	height:650px;
+	width:auto;
+}
+
+header  {
+	width:auto;
+	height:45px
+	margin-bottom:1px;
+}
+
+header h1 {
+	margin-top:15px;
+	text-align:center;
+	font-family: "NinjaNaruto", serif;	
+}
+
+#wrap {
+	margin:0 auto;
+	width:1000px;
+}
+
+#botones {
+	margin: 50px auto 0;
+    width: 67px;
+}
+
+
+
+
+
+/*_________________________Estilos Sharingan _________________________*/
+
+/*div que agrupa todos los elementos a utilizar y que sirve
+como borde negro exterior*/
+div#sharingan {
+	    height: 226px;
+	    width: 255px;
+	    margin: 0 auto;
+	    padding: 5px 0;
+	    border:1px solid;
+	    background: #000;
+	    box-shadow:0px 0px 24px rgba(0,0,0,0.6);
+	    border-radius: 132px / 117px 117px 117px 117px;
+	}
+	
+	/*Elemento ul con borde circular y que será una parte del iris, 
+	pero en su forma inactiva tiene un fondo de color #5A6992 
+	luego al hacer hover en el cambia a #B20000, color típico 
+	del sharingan.
+
+	Está posicionado de forma relativa, tiene una serie 3 box-shadow
+	para recrear una forma esférica un poco más realista y finalmente
+	una transición CSS3 para la propiedad background-color */
+	ul {
+	    background-color: #5A6992;
+	    margin: 0 0 0 8px;
+	    width: 199px;
+	    height: 224px;
+	    position: relative;
+	    top: 1px;
+	    border-radius: 139px 139px 139px 139px / 124px 124px 124px 124px;
+	    box-shadow:3px 0px 58px rgba(255,255,255,0.5) inset,0px 0px 20px rgba(255,255,255,0.1) inset,0px 0px 9px 7px rgba(0,0,0,1);
+	    transition:background 0.5s ease-in;
+	}
+
+	ul:hover {
+		background-color: #B20000;
+	}
+
+		ul li {
+			list-style:none;
+			position: relative;
+			background: transparent;
+		}
+
+		/*Pupila*/
+		ul li:first-child {
+			background:#000;
+		    left: -9%;
+		    top: 39%;
+		    width: 51px;
+		    height: 51px;
+		    margin: 0 auto;
+		    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+		    border-radius: 68px / 64px;
+		    /*Escalado a 0.5 ya que es el tamaño de la pupila en su estado
+		    normal y una transición con cubic-bezier(0, 1, 1, 2) para darle
+		    un efecto bounce*/
+		    transition:transform .5s cubic-bezier(0, 1, 1, 2);
+		    transform:scale(0.5);
+		}
+
+		/*Transición de la pupila al hacer :hover, que con transform:scale(1) 
+		devuelve a li:first-child a su escala original y con el efecto rebote
+		ya mencionado */	
+		ul:hover li:first-child {
+			transition:transform .5s cubic-bezier(0, 1, 1, 2);
+			transform:scale(1);
+		}
+
+		/*Ultima parte del iris, .ring es el anillo por
+		el que se moverán de forma circular las aspas 
+		del sharingan,con una transición de la propiedad
+		transform para cuando vuelva a su estado original. */
+		.ring {
+		    top: 0;
+		    left: 9%;
+		    height: 125px;
+		    width: 125px;
+		    box-shadow: 0 0 74px rgba(255, 255, 255, 0.3), 0 0 17px rgba(255, 255, 255, 0.3) inset,0 0 5px rgba(0,0,0,0.3) inset;
+		    border-radius: 70px 70px 70px 70px;
+		    transition:transform 0.1s ease-in;
+		}
+
+		/*Transición del anillo del iris el cual se escala a 1.1
+		al hacer hover en ul*/
+		ul:hover .ring {
+			transition:transform 0.1s ease-in;
+			transform:scale(1.1);
+		}
+
+
+		/* Las 3 aspas del sharingan, mejor dicho una parte de ellas:
+		.aspas son los 3 elementos li que con los siguientes estilos formaran un 
+		circulo de 25px, posicionados de forma relativa pero los valores en
+		top y left son sólo del aspa superior (al igual que .aspa p) y 
+		con su respectiva transición para la propiedad background 
+		(al igual que .aspa p). */
+		.aspa {
+		    top: -61%;
+		    left: 68px;
+		    height: 25px;
+		    width: 25px;
+		 	/*z-index: 3;*/
+		    border-radius: 50px 50px 50px 50px;
+		 	transition:background .5s ease-out;
+		}
+
+		/*Punta de las 3 aspas (elementos p dentro de los li.aspa),
+		que se logran gracias a las propiedades border-radius y 
+		transform: skew() dandole una forma parecida a las puntas
+		de la primera imagen y posicionadas de forma correcta 
+		por encima de su elemento padre y con una transición 
+		para la propiedad background*/
+		.aspa p {
+			    position: relative;
+			    top: -43px;
+			    left: 4px;
+			    border-radius: 197px 0px 371px 273px;
+		       transform: skew(-46deg, -10deg);
+		       transition:background .5s ease-out;
+		}
+
+
+		/*Al hacer hover en ul pues se le aplica un fondo
+		negro tanto a las aspas (li.aspa) como 
+		a las puntas de las aspas (li.aspa p) para hacerlas
+		"visibles"*/
+		ul:hover .aspa, ul:hover .aspa p {
+			background-color:#000;
+		}
+
+
+		/*.der e .izq son las clases para las aspas derecha 
+		e izquierda, que ya con posicionadas de forma relativa 
+		se rotan cada una en el angulo deseado con transform rotate() 
+		para que sea lo mas parecido a un sharingan */
+		.der {
+		    left: 120px;
+		    top: -62px;
+		    transform: rotate(69deg);
+		}
+
+		.izq {
+		    left: 15px;
+		    top: -87px;
+		    transform: rotate(200deg);
+		}
+
+
+	/*Hasta este punto ya se tiene un sharingan nivel 1 completo,
+	pero le falta su movimiento circular, éste se logra definiendo
+	3 keyframes que apliquen 'transform: translate(px,px) rotate(deg)'
+	a cada una de las aspas (.sup,.der,.izq) en 7 pasos	siguiendo 
+	la trayectoria de .ring */
+	@keyframes aspa1 {
+      0% {
+        transform: translate(0px,0px) rotate(0deg);
+      }
+
+      50% {
+        transform:translate(59px,28px) rotate(28deg);
+      }
+
+      60% {
+        transform:translate(51px,100px) rotate(68deg);
+      }
+
+      70% {
+        transform:translate(4px,129px) rotate(146deg);
+      }
+
+      80% {
+        transform:translate(-54px,98px) rotate(197deg);
+      }
+
+      90% {
+        transform:translate(-67px,53px) rotate(255deg);
+      }
+
+      100% {
+        transform: translate(3px,-1px) rotate(349deg);
+      }
+    } 
+
+    @keyframes aspa2 {
+      0% {
+        transform: translate(0px,0px) rotate(75deg);
+      }
+
+      50% {
+        transform:translate(-36px,17px) rotate(92deg);
+      }
+
+      60% {
+        transform:translate(-106px,2px) rotate(205deg);
+      }
+
+      70% {
+        transform:translate(-112px,-60px) rotate(248deg);
+      }
+
+      80% {
+        transform:translate(-49px,-103px) rotate(354deg);
+      }
+
+      90% {
+        transform:translate(11px,-54px) rotate(387deg);
+      }
+
+      100% {
+        transform: translate(5px,0px) rotate(441deg);
+      }
+    } 
+
+    @keyframes aspa3 {
+      0% {
+        transform: translate(0,0) rotate(200deg);
+      }
+
+      50% {
+        transform:translate(-8px,-34px) rotate(219deg);
+      }
+
+      60% {
+        transform:translate(55px,-98px) rotate(350deg);
+      }
+      70% {
+        transform:translate(116px,-43px) rotate(410deg);
+      }
+
+      80% {
+        transform:translate(106px,3px) rotate(442deg);
+      }
+      90% {
+        transform:translate(55px,27px) rotate(503deg);
+      }
+
+      100% {
+        transform: translate(2px,1px) rotate(551deg);
+
+      }
+    } 
+
+
+	/*Aplicando una animacion con direccion normal, con un
+	retraso de 1s, una duración de 0.5s, realizando 2 vueltas
+	o ciclos y de forma lineal */
+	ul:hover .sup {
+		animation-name: aspa1;
+		animation-duration: .5s;
+		animation-iteration-count: 2;
+		animation-timing-function: linear;
+		animation-delay:1s;
+		animation-direction: normal;
+	}
+
+	ul:hover .der {
+		animation-name: aspa2;
+		animation-duration: .5s;
+		animation-iteration-count: 2;
+		animation-timing-function: linear;
+		animation-delay:1s;
+		animation-direction: normal;
+	}
+	
+
+	ul:hover .izq {
+		animation-name: aspa3;
+		animation-duration: .5s;
+		animation-iteration-count: 2;
+		animation-timing-function: linear;
+		animation-delay:1s;
+		animation-direction: normal;
+	}

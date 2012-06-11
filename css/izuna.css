@@ -1,0 +1,83 @@
+/*---------------Izuna---------------*/
+    /*Color de fondo del iris y la pupila*/
+    ul,ul:hover,ul li:first-child  {
+        background: #A00;
+    }
+
+
+    /*Para que la pupila quede por encima de las demás capas*/
+    ul li:first-child {
+        z-index: 5;
+    }
+
+    /*Eliminando la sombra del anillo y escalándolo
+    a 1.3*/
+    .ring {
+        box-shadow:none;
+        transform: scale(1.3);
+    }
+
+    /*Escalando a 1.4 el .ring al hacer ul:hover
+    con una pequeña transición en la propiedad 
+    transform*/
+    ul:hover .ring {
+        transition:transform 0.1s ease-in;
+        transform:scale(1.4);
+    }
+
+    .ring,.aspa p {
+        background: #000;
+    } 
+
+    /*Quitando los bordes redondeados 
+    y las transformaciones a .aspa,.aspa p,
+    es decir vuelven a su estado original*/
+    .aspa,.aspa p {
+        border-radius: 0;
+        transform: none;
+    }
+
+    /*Ésta regla CSS para centrar las puntas
+    de las aspas con el .ring escalado*/
+    .aspa p {
+        left: 0;
+    }
+
+    /*Las aspas tendrán una 
+    anchura de 57px y... */
+    .sup,.der,.izq {
+        width: 57px;
+    }
+
+    /*Luego cada aspa
+    será reposicionada,y
+    se rotaran .der e .izq
+    para que queden en el 
+    angulo correcto con
+    respecto a .ring*/
+    .sup {
+        left: 51px;
+        top: -168px;
+    }
+
+    .der {
+        left: 137px;
+        top: -69px;
+        transform: rotate(24deg);
+    }
+
+    .izq {
+        left: -18px;
+        top: -79px;
+        transform: rotate(58deg);
+    }
+
+    /*.... y las puntas una altura de 57px */
+    .sup p,.der p,.izq p {
+        height: 57px;
+    }
+
+    /*Por si acaso,recuerda inhabilitar las animaciones*/
+    ul:hover .sup,ul:hover .der,ul:hover .izq {
+        animation:none;
+    }
