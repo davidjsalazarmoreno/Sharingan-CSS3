@@ -29,6 +29,7 @@ header h1 {
 	margin-top:15px;
 	text-align:center;
 	font-family: "NinjaNaruto", serif;	
+	text-shadow: 0 0 10px #FFFFFF, 0 0 4px #000000, 0 0 10px #DA991C;
 }
 
 #wrap {

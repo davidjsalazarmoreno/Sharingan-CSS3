@@ -1,0 +1,95 @@
+/*---------------Rinnegan---------------*/
+
+/*Gradiente lineal que recrea el tono de color del Rinnegan  */
+ul,ul:hover {
+		background: linear-gradient(top, #8d7f9a 0%,#8f849c 14%,#90899e 29%,#9394a2 43%,#9499a4 57%,#969fa6 71%,#97a3a8 86%,#97a4a8 100%);
+}
+
+/*Cambiando el color de fondo de .aspa y .aspa p (puntas de las aspas) a 
+transparente,ésto al hacer :hover */
+ul:hover .aspa, ul:hover .aspa p {
+	background-color:transparent;
+}
+
+/*Estilos para la pupila del Rinnegan */
+ul li:first-child {
+    background: #000;
+    border: 1px solid #000;
+	top: 107px;
+	width: 11px;
+    height: 11px;
+    box-shadow: none;
+    transform: none;
+}
+
+/*Escalando la pupila(li:first-child) al hacer 
+ul:hover (la transición se añadió en la hoja de
+estilos sharingan.css) */
+ul:hover li:first-child {
+	transform:scale(1.7);
+}
+
+/*Borde de cada uno de los anillos*/
+.ring,.sup,.der {
+	border: 5px solid #000;
+}
+
+/*Ahora se reposicionara y ajustara su anchura/altura,para darle forma a los 3 anillos 
+concéntricos que conforman al Rinnegan*/
+
+/*Primer Anillo (mas cercano a la pupula)*/
+.ring {
+	top: 65px;
+    left: 48.3px;
+    width: 59px;
+    height: 59px;
+    transform:none;
+}
+
+/*El aspa superior se convierte en el segundo
+anillo*/
+.sup {
+	top: -39px;
+    left: 14px;
+    width: 126px;
+    height: 126px;
+    border-radius: 68px 68px 68px 68px / 64px 64px 64px 64px;
+}
+
+/*El aspa derecha se convierte en el tercer
+anillo*/
+.der {
+	top: -205px;
+    left: -22px;
+    width: 196px;
+    height: 186px;
+    border-radius: 107px 107px 107px 107px;
+    transform: none;
+}
+
+/*Las 3 siguientes reglas CSS añaden una serie de
+transiciones para recrear la dilatación de la pupila
+del Rinnegan escalando sus anillos con transform:scale()*/
+ul .sup,ul:hover .sup,ul .der,ul:hover .der {
+	transition:transform 1s cubic-bezier(0, 1, 1, 2);
+}
+
+ul:hover .sup {
+	transform:scale(1.3);
+}
+
+ul:hover .der {
+	transform:scale(1.1);
+}
+
+/*Ocultando el aspa izquierda ya que no es necesaria*/
+.izq {
+	display: none;
+}
+
+/*Por si acaso,hay inhabilitar las animaciones
+del primer sharingan*/
+ul:hover .sup,ul:hover .der,ul:hover .izq {
+	animation:none;
+}
+	
