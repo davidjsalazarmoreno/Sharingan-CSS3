@@ -10,4 +10,4 @@ Ejemplos en accion desde aqui:
 <br/>
 <a href="http://lordcaos.com.ve/experimentos/css3/izuna.html">Mangekyou Sharingan Izuna CSS3</a>
 <br/>
-<a href="http://experimentoslordcaos.hostoi.com/rinnegan.html">Rinnegan CSS3</a>
+<a href="lordcaos.com.ve/experimentos/css3/rinne.html">Rinnegan CSS3</a>
